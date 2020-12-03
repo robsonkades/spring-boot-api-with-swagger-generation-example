@@ -1,7 +1,10 @@
 package com.pismo.payments.controllers;
 
+import javax.validation.Valid;
+
 import com.pismo.payments.dtos.TransactionDTO;
 import com.pismo.payments.services.ICreateTransactionService;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AccessLevel;
@@ -15,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

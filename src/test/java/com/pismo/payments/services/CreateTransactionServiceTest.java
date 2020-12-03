@@ -1,16 +1,17 @@
 package com.pismo.payments.services;
 
+import java.math.BigDecimal;
+
 import com.pismo.payments.dtos.AccountDTO;
 import com.pismo.payments.dtos.OperationType;
 import com.pismo.payments.dtos.TransactionDTO;
 import com.pismo.payments.exceptions.AccountNotFoundException;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
-
-import java.math.BigDecimal;
 
 @SpringBootTest
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)

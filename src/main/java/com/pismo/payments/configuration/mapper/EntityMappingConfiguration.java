@@ -1,10 +1,15 @@
 package com.pismo.payments.configuration.mapper;
 
+import java.util.Date;
+
+import javax.annotation.PostConstruct;
+
 import com.pismo.payments.dtos.AccountDTO;
 import com.pismo.payments.dtos.OperationType;
 import com.pismo.payments.dtos.TransactionDTO;
 import com.pismo.payments.entities.Account;
 import com.pismo.payments.entities.Transaction;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -12,9 +17,6 @@ import org.modelmapper.AbstractConverter;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.PostConstruct;
-import java.util.Date;
 
 @Configuration
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

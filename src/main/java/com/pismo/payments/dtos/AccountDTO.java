@@ -1,10 +1,10 @@
 package com.pismo.payments.dtos;
 
-import lombok.Data;
-
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+import lombok.Data;
 
 @Data
 public class AccountDTO {

@@ -1,12 +1,13 @@
 package com.pismo.payments.dtos;
 
-import lombok.Data;
+import java.math.BigDecimal;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
+
+import lombok.Data;
 
 @Data
 public class TransactionDTO {
