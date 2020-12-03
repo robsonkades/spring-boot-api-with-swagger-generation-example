@@ -28,7 +28,7 @@ Execute o commando para iniciar a aplicação
 
 Após a inicialização da sua aplicação será disponibilizado as apis para criação de conta e transação.
 Para consultar as apis disponíveis basta acessar o swagger (http://localhost:8080/v2/api-docs) contendo a documentação de como executar, 
-ou você pode acessar o swagger ui para testar atráves do endereço http://localhost:8080/swagger-ui/index.htm
+ou você pode acessar o swagger ui para testar atráves do endereço http://localhost:8080/swagger-ui
 
 
 

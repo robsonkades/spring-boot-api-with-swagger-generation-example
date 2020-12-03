@@ -21,13 +21,13 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Api(value = "Api para gerenciar transações", produces = MediaType.APPLICATION_JSON_VALUE, tags = {"Transação"})
+@Api(value = "Api para gerenciar transações", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE, tags = {"Transação"})
 public class TransactionController {
 
     ICreateTransactionService createTransactionService;
 
     @RequestMapping(value = "/transactions", method = RequestMethod.POST, consumes = {"application/json"}, produces = {"application/json"})
-    @ApiOperation(value = "Cria uma transação financeira")
+    @ApiOperation(value = "Cria uma transação financeira", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TransactionDTO> create(@Valid @RequestBody TransactionDTO transactionDTO) {
         var response = createTransactionService.execute(transactionDTO);
         return new ResponseEntity<>(response, HttpStatus.CREATED);

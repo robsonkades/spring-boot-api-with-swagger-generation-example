@@ -23,20 +23,21 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Api(value = "Api para gerenciar contas de transação", produces = MediaType.APPLICATION_JSON_VALUE, tags = {"Conta"})
+@Api(value = "Api para gerenciar contas de transação", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE, tags = {"Conta"})
 public class AccountController {
 
     ICreateAccountService createAccountService;
     IGetAccountService getAccountService;
 
-    @RequestMapping(value = "/accounts", method = RequestMethod.POST, consumes = {"application/json"}, produces = {"application/json"})
-    @ApiOperation(value = "Cria uma conta")
+    @RequestMapping(value = "/accounts", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Cria uma conta", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AccountDTO> create(@Valid @RequestBody AccountDTO account) {
         var response = createAccountService.execute(account);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/accounts/{accountId}", method = RequestMethod.GET, consumes = {"application/json"}, produces = {"application/json"})
+    @RequestMapping(value = "/accounts/{accountId}", method = RequestMethod.GET)
     @ApiOperation(value = "Busca uma conta")
     public ResponseEntity<AccountDTO> read(@Valid @PathVariable Long accountId) {
         var response = getAccountService.execute(accountId);
