@@ -32,7 +32,8 @@ public class UpdateLimitAccountService implements IUpdateLimitAccountService {
             var newLimit = account.getAvailable_credit_limit().add(amount);
             account.setAvailable_credit_limit(newLimit);
         } else {
-            if(amount.doubleValue() > account.getAvailable_credit_limit().doubleValue()) {
+            // https://stackoverflow.com/questions/34677644/how-to-use-comparison-operators-like-on-bigdecimal
+            if(account.getAvailable_credit_limit().compareTo(amount) < 0) {
                 throw new AccountLimitExceededException(account.getId());
             }
             var newLimit = account.getAvailable_credit_limit().subtract(amount);
