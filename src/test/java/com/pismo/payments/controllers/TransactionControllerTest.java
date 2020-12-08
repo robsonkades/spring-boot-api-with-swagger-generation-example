@@ -37,7 +37,7 @@ public class TransactionControllerTest {
 
         response.andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"account_id\":1,\"document_number\":999}", true));
+                .andExpect(content().json("{\"account_id\":1,\"document_number\":999,\"available_credit_limit\":100}", true));
 
         ResultActions responseTransaction = mockMvc.perform(
                 post("/transactions")
@@ -59,7 +59,7 @@ public class TransactionControllerTest {
 
         response.andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"account_id\":1,\"document_number\":999}", true));
+                .andExpect(content().json("{\"account_id\":1,\"document_number\":999,\"available_credit_limit\":100}", true));
 
         ResultActions responseTransaction = mockMvc.perform(
                 post("/transactions")
@@ -81,7 +81,7 @@ public class TransactionControllerTest {
 
         response.andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"account_id\":1,\"document_number\":999}", true));
+                .andExpect(content().json("{\"account_id\":1,\"document_number\":999,\"available_credit_limit\":100}", true));
 
         ResultActions responseTransaction = mockMvc.perform(
                 post("/transactions")
@@ -103,7 +103,7 @@ public class TransactionControllerTest {
 
         response.andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"account_id\":1,\"document_number\":999}", true));
+                .andExpect(content().json("{\"account_id\":1,\"document_number\":999,\"available_credit_limit\":100}", true));
 
         ResultActions responseTransaction = mockMvc.perform(
                 post("/transactions")
@@ -129,6 +129,7 @@ public class TransactionControllerTest {
     private AccountDTO createAccount(Long documentNumber) {
         var account = new AccountDTO();
         account.setDocument_number(documentNumber);
+        account.setAvailable_credit_limit(new BigDecimal(100));
         return account;
     }
 

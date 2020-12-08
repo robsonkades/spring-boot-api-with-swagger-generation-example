@@ -1,5 +1,7 @@
 package com.pismo.payments.entities;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,4 +36,7 @@ public class Account {
 
     @Column(name = "document_number")
     Long documentNumber;
+
+    @Column(name = "available_credit_limit")
+    BigDecimal available_credit_limit;
 }

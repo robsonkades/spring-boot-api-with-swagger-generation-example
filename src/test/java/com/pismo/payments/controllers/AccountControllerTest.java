@@ -1,5 +1,7 @@
 package com.pismo.payments.controllers;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pismo.payments.dtos.AccountDTO;
 
@@ -35,7 +37,7 @@ public class AccountControllerTest {
 
         response.andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"account_id\":1,\"document_number\":999}", true));
+                .andExpect(content().json("{\"account_id\":1,\"document_number\":999,\"available_credit_limit\":100}", true));
     }
 
     @Test
@@ -51,7 +53,7 @@ public class AccountControllerTest {
 
         response.andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{\"account_id\":1,\"document_number\":999}", true));
+                .andExpect(content().json("{\"account_id\":1,\"document_number\":999,\"available_credit_limit\":100}", true));
     }
 
     @Test
@@ -66,6 +68,7 @@ public class AccountControllerTest {
     private AccountDTO createAccount(Long documentNumber) {
         var account = new AccountDTO();
         account.setDocument_number(documentNumber);
+        account.setAvailable_credit_limit(new BigDecimal(100));
         return account;
     }
 }

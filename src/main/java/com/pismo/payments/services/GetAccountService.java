@@ -23,7 +23,6 @@ public class GetAccountService implements IGetAccountService {
     public AccountDTO execute(Long account_id) {
         var account = repository
                 .findById(account_id).orElseThrow(() -> new AccountNotFoundException(account_id));
-
         return modelMapper.map(account, AccountDTO.class);
     }
 }

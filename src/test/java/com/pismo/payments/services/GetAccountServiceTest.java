@@ -1,5 +1,7 @@
 package com.pismo.payments.services;
 
+import java.math.BigDecimal;
+
 import com.pismo.payments.dtos.AccountDTO;
 import com.pismo.payments.exceptions.AccountNotFoundException;
 
@@ -43,6 +45,7 @@ public class GetAccountServiceTest {
     private AccountDTO createAccount(Long documentNumber) {
         var account = new AccountDTO();
         account.setDocument_number(documentNumber);
+        account.setAvailable_credit_limit(new BigDecimal(102));
         return account;
     }
 }

@@ -31,7 +31,11 @@ public class EntityMappingConfiguration {
             @Override
             protected Account convert(AccountDTO accountDTO) {
                 Account newAccount = new Account();
+                if (accountDTO.getAccount_id() != null) {
+                    newAccount.setId(accountDTO.getAccount_id());
+                }
                 newAccount.setDocumentNumber(accountDTO.getDocument_number());
+                newAccount.setAvailable_credit_limit(accountDTO.getAvailable_credit_limit());
                 return newAccount;
             }
         });
@@ -39,8 +43,12 @@ public class EntityMappingConfiguration {
             @Override
             protected AccountDTO convert(Account account) {
                 AccountDTO newAccount = new AccountDTO();
+                if (account.getId() != null) {
+                    newAccount.setAccount_id(account.getId());
+                }
                 newAccount.setDocument_number(account.getDocumentNumber());
                 newAccount.setAccount_id(account.getId());
+                newAccount.setAvailable_credit_limit(account.getAvailable_credit_limit());
                 return newAccount;
             }
         });

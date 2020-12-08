@@ -1,5 +1,7 @@
 package com.pismo.payments.services;
 
+import java.math.BigDecimal;
+
 import com.pismo.payments.dtos.AccountDTO;
 
 import org.junit.jupiter.api.Assertions;
@@ -19,8 +21,10 @@ public class CreateAccountServiceTest {
     void shouldBeAbleToCreateAccount() {
         var account = new AccountDTO();
         account.setDocument_number(11111L);
+        account.setAvailable_credit_limit(new BigDecimal(1000));
         var response = createAccountService.execute(account);
         Assertions.assertEquals(1, response.getAccount_id().intValue());
         Assertions.assertEquals(11111, response.getDocument_number().intValue());
+        Assertions.assertEquals(new BigDecimal(1000), response.getAvailable_credit_limit());
     }
 }
